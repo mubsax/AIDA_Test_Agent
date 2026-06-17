@@ -7,7 +7,6 @@ Acceptance criteria:
   - Invalid credentials show "Invalid email or password"
 """
 
-import json
 import os
 import sys
 from playwright.sync_api import sync_playwright
@@ -15,9 +14,10 @@ from playwright.sync_api import sync_playwright
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 from config import LOGIN_URL, SCREENSHOT_DIR
 
-_auth = json.loads(open("auth.json").read())
-VALID_EMAIL = _auth["credentials"]["email"]
-VALID_PASSWORD = _auth["credentials"]["password"]
+VALID_EMAIL = os.environ.get("EMAIL", "")
+VALID_PASSWORD = os.environ.get("PASSWORD", "")
+if not VALID_EMAIL or not VALID_PASSWORD:
+    raise EnvironmentError("Set EMAIL and PASSWORD environment variables before running tests.")
 
 results = []
 
