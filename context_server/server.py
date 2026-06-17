@@ -6,9 +6,18 @@ from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp import types
 
+# Load .env from the project root (two levels up from this file)
+_env_path = Path(__file__).parent.parent / ".env"
+if _env_path.exists():
+    for _line in _env_path.read_text().splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _, _v = _line.partition("=")
+            os.environ.setdefault(_k.strip(), _v.strip())
+
 server = Server("context-server")
 
-CONFLUENCE_BASE = "https://your-org.atlassian.net/wiki/rest/api"
+CONFLUENCE_BASE = "https://sibmee.atlassian.net/wiki/rest/api"
 CONFLUENCE_TOKEN = os.environ.get("CONFLUENCE_API_TOKEN")
 CONFLUENCE_EMAIL = os.environ.get("CONFLUENCE_EMAIL")
 
