@@ -1,4 +1,4 @@
-# AI Test Agent
+# AIDA (AI Driven Autonomous) Test Agent
 
 An autonomous browser-based UI testing agent powered by **Claude Code** and **Playwright MCP**. Feed it user stories or bug reports — from local files or a live Confluence page — and it plans, executes, and reports end-to-end UI tests without human intervention.
 
