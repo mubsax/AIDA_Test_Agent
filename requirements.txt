@@ -7,3 +7,4 @@ pydantic_core==2.46.4
 pytest-playwright==0.8.0
 python-dotenv==1.2.2
 reportlab==5.0.0
+requests~=2.34.2
