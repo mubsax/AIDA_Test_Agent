@@ -1,4 +1,4 @@
-# AIDA Test Agent
+# AIDA (AI Driven Autonomous) Test Agent
 
 An autonomous QA agent for web platforms. AIDA uses Claude as its reasoning
 engine, a custom Context MCP server as its knowledge base, and the Playwright MCP
