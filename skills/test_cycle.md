@@ -15,6 +15,17 @@ Before touching the browser:
 ### 1 — Load context
 Follow `skills/context_loading.md`. Extract all story IDs and doc filenames.
 
+### 1a — Look up the page-level business logic doc
+Before planning any steps, identify which page of the app the feature under test lives on.
+Check whether a business logic doc exists for that page in `context_server/docs/`.
+
+- List the files in `context_server/docs/` and look for a doc whose name corresponds to the page (e.g. `Sibme_login_page_spec.md` for the login page).
+- If a matching doc exists, read it in full — even if `get_all_context()` already returned it. Confirm you have read the page doc before continuing.
+- If no matching doc exists for the page, log a note in the report header: "No page-level doc found for `<page name>` — test steps grounded in feature stories and confluence only."
+- If the feature spans more than one page, repeat this check for each page.
+
+The page doc defines correctness for the whole page. Feature stories define what is new. Both must be read before planning.
+
 ### 2 — Plan steps
 Plan test steps based on acceptance criteria from stories, grounded in docs.
 Do not improvise steps that have no story or doc backing.
